@@ -1,15 +1,44 @@
-public abstract class ProduceProductMenu implements ProductMenu {
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
-	public abstract void showMenu();
+public class ProduceProductMenu implements ProductMenu {
 
-	public abstract void showAddButton();
+	public void showMenu(HashMap<String, Integer> menu_data)
+	{
+		for(Map.Entry<String,Integer> entry : menu_data.entrySet())
+		{
+			String key = entry.getKey();
+			Integer value = entry.getValue();
+			if(value == 1)
+				System.out.println(key);
+		}
+	}
 
-	public abstract void showRadioButton();
+	public void showAddButton()
+	{
 
-	public abstract void showLabels();
+	}
 
-	public abstract void showViewButtons();
+	public void showRadioButton()
+	{
 
-	public abstract void showComboxes();
+	}
+
+	public void showLabels()
+	{
+
+	}
+
+	public void showViewButton()
+	{
+
+	}
+
+	public void showComboxes()
+	{
+
+	}
 
 }

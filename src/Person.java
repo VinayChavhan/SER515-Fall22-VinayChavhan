@@ -1,8 +1,8 @@
 public abstract class Person {
 
-	private ProductMenu theProductMenu;
 
 	private ProductMenu productMenu;
+
 
 	public abstract void showMenu();
 
@@ -22,6 +22,6 @@ public abstract class Person {
 
 	}
 
-	public abstract ProductMenu CreateProductMenu();
+	public abstract void CreateProductMenu();
 
 }
