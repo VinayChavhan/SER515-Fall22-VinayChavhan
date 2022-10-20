@@ -28,9 +28,13 @@ public class Login {
         System.out.println("Enter password");
         String password = myObj1.nextLine();
 
+        //Login Verification
         String check_credentials = userName+":"+password;
-        if(credentials.containsKey(check_credentials))
+        check_credentials.toLowerCase();
+        if(credentials.containsKey(check_credentials)) {
+            System.out.println("Login Successful, Welcome "+userName);
             return credentials.get(check_credentials);
+        }
         return -1;
     }
 }

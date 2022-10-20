@@ -14,9 +14,21 @@ public class MeatProductMenu implements ProductMenu {
 			if(value == 0)
 				System.out.println(key);
 		}
+		this.showAddButton(menu_data);
 	}
 
-	public void showAddButton() {
+	public void showAddButton(HashMap<String, Integer> menu_data) {
+		System.out.println("Please Enter Meat Menu");
+		Scanner myObj = new Scanner(System.in);
+		String menu = myObj.nextLine();
+		if(menu_data.containsKey(menu)) {
+			Facade facade = new Facade();
+			facade.addTrading(this);
+		}
+		else
+		{
+			System.out.println("This Item is not available");
+		}
 
 	}
 

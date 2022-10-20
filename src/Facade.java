@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 public class Facade {
 
@@ -18,52 +19,33 @@ public class Facade {
 			UserType = l.login();
 			if (UserType == -1) {
 				System.out.print("Invalid Credentials, Please try again");
-			} else {
-				Scanner myObj = new Scanner(System.in);
-				System.out.println("Enter Type of Menu you want to see\n" +
-						"0 for Meat\n" + "1 for Produce");
-				nProductCategory = myObj.nextInt();
-				if (UserType == 0) {
-					Buyer buyer;
-					if (nProductCategory == 0) {
-						buyer = new Buyer(new MeatProductMenu());
-						buyer.CreateProductMenu();
-						buyer.showMenu();
-					} else if (nProductCategory == 1) {
-						buyer = new Buyer(new ProduceProductMenu());
-						buyer.CreateProductMenu();
-						buyer.showMenu();
-					} else
-						System.out.println("Invalid Entry, Please type 0 or 1 to see Menu");
-				}
-				else
-				{
-					Seller seller;
-					if (nProductCategory == 0) {
-						seller = new Seller(new MeatProductMenu());
-						seller.CreateProductMenu();
-						seller.showMenu();
-					} else if (nProductCategory == 1) {
-						seller = new Seller(new ProduceProductMenu());
-						seller.CreateProductMenu();
-						seller.showMenu();
-					} else
-						System.out.println("Invalid Entry, Please type 0 or 1 to see Menu");
-				}
+				login();
 			}
+			else {
+				if(UserType == 0)
+					System.out.println("Buyer Logged in");
+				else if(UserType == 1)
+					System.out.println("Seller Logged in");
+				createUser();
+			}
+		}
+		catch (FileNotFoundException e)
+		{
+			System.out.println("File Not Found, Please add the BuyerInfo.txt and SellerInfo.txt in code directory to proceed");
 		}
 		catch(Exception e)
 		{
 			System.out.println(e.getMessage());
+			login();
 		}
 	}
 
-	public void addTrading() {
-
+	public void addTrading(ProductMenu menu) {
+		System.out.println(("Adding for Trade"));
 	}
 
 	public void viewTrading() {
-
+		System.out.println(("View Trading"));
 	}
 
 	public void decideBidding() {
@@ -82,8 +64,36 @@ public class Facade {
 
 	}
 
-	public void createUser() {
+	public void createUser() throws Exception {
 
+		Person user = null;
+		Scanner myObj = new Scanner(System.in);
+		System.out.println("Enter Type of Menu you want to see\n" +
+				"0 for Meat\n" + "1 for Produce");
+		nProductCategory = myObj.nextInt();
+		if (UserType == 0) {
+			if (nProductCategory == 0) {
+				user = new Buyer(new MeatProductMenu());
+			} else if (nProductCategory == 1) {
+				user = new Buyer(new ProduceProductMenu());
+			} else {
+				throw new Exception("Invalid Entry, Please type 0 or 1 to see Menu");
+			}
+		}
+		else
+		{
+			if (nProductCategory == 0) {
+				user = new Seller(new MeatProductMenu());
+			} else if (nProductCategory == 1) {
+				user = new Seller(new ProduceProductMenu());
+			} else {
+					throw new Exception("Invalid Entry, Please type 0 or 1 to see Menu");
+			}
+		}
+		if(user != null) {
+			user.CreateProductMenu();
+			user.showMenu();
+		}
 	}
 
 	public void createProductList() {

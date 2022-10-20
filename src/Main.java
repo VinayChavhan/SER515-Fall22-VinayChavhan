@@ -3,8 +3,12 @@ import java.util.Scanner;
 public class Main {
     public static void main(String args[]) throws Exception
     {
-        Facade obj = new Facade();
-        obj.login();
+        System.out.println("Design Pattern Assignment");
+        System.out.println("Please use console to access the application");
+
+        Facade facade = new Facade();
+        System.out.println("+++++++++++Facade Pattern+++++++++++");
+        facade.login();
 //        Scanner myObj = new Scanner(System.in);
 //        System.out.println("Enter username");
 //        String userName = myObj.nextLine();

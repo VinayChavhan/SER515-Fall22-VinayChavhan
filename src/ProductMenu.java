@@ -7,7 +7,7 @@ public interface ProductMenu {
 
 	public abstract void showMenu(HashMap<String, Integer> menu_data);
 
-	public abstract void showAddButton();
+	public abstract void showAddButton(HashMap<String, Integer> menu_data);
 
 	public abstract void showViewButton();
 
