@@ -5,17 +5,16 @@ import java.util.Scanner;
 public class Seller extends Person {
 
 	ProductMenu menu = null;
-	HashMap<String, Integer> menu_data= new HashMap<>();
+	HashMap<String, Integer> seller_menu_data= new HashMap<>();
 	public Seller(ProductMenu meatProductMenu) {
-		this.menu = menu;
+		this.menu = meatProductMenu;
 	}
 
 	public void showMenu() {
-		menu.showMenu(menu_data);
+		menu.showMenu(seller_menu_data);
 	}
 
 	public void CreateProductMenu() {
-		System.out.println("Creating Menu");
 		File file = new File("ProductInfo.txt");
 		try {
 			String st = null;
@@ -23,7 +22,7 @@ public class Seller extends Person {
 			while (sc.hasNextLine()) {
 				st = sc.nextLine();
 				String[] dict = st.split(":");
-				menu_data.put(dict[1],dict[0].equals("Produce") ? 1 : 0);
+				seller_menu_data.put(dict[1],dict[0].equals("Produce") ? 1 : 0);
 			}
 		}
 		catch(Exception e){

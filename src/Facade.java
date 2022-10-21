@@ -75,7 +75,8 @@ public class Facade {
 		System.out.println(("Adding for Trade"));
 		try {
 			FileWriter fw=new FileWriter("UserProduct.txt",true);
-			fw.write(username+":"+item+"\n");
+			fw.write("\n");
+			fw.write(username+":"+item);
 			fw.close();
 		}catch(Exception e) {
 			System.out.println("Exception occured");

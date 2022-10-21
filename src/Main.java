@@ -3,12 +3,19 @@ import java.util.Scanner;
 public class Main {
     public static void main(String args[]) throws Exception
     {
+        int choice = 0;
         System.out.println("Design Pattern Assignment");
         System.out.println("Please use console to access the application");
         System.out.println();
-        Facade facade = new Facade();
-        System.out.println("+++++++++++Facade Pattern+++++++++++");
-        facade.start_facade();
+        while(choice == 0) {
+            Facade facade = new Facade();
+            System.out.println("+++++++++++Facade Pattern+++++++++++");
+            facade.start_facade();
+            Scanner myObj = new Scanner(System.in);
+            System.out.println("Want to access application again? \n 0. Continue \n 1. Logout");
+            choice = myObj.nextInt();
+        }
+        System.out.println("Bye Bye User, Have a nice day");
 //        Scanner myObj = new Scanner(System.in);
 //        System.out.println("Enter username");
 //        String userName = myObj.nextLine();
