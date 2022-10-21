@@ -5,10 +5,10 @@ public class Main {
     {
         System.out.println("Design Pattern Assignment");
         System.out.println("Please use console to access the application");
-
+        System.out.println();
         Facade facade = new Facade();
         System.out.println("+++++++++++Facade Pattern+++++++++++");
-        facade.login();
+        facade.start_facade();
 //        Scanner myObj = new Scanner(System.in);
 //        System.out.println("Enter username");
 //        String userName = myObj.nextLine();

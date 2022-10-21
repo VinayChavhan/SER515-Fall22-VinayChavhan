@@ -5,20 +5,17 @@ import java.util.Scanner;
 public class Buyer extends Person {
 
 	ProductMenu menu = null;
+
 	HashMap<String, Integer> menu_data= new HashMap<>();
 	public Buyer(ProductMenu menu) {
 		this.menu = menu;
 	}
 
 	public void showMenu() {
-		System.out.println("+++++++++++Factory Pattern+++++++++++");
-		System.out.println("Deciding object and calling it runtime");
 		menu.showMenu(menu_data);
 	}
 
 	public void CreateProductMenu() {
-		System.out.println("+++++++++++Bridge Pattern+++++++++++");
-		System.out.println("Creating Menu");
 		File file = new File("ProductInfo.txt");
 		try {
 			String st = null;

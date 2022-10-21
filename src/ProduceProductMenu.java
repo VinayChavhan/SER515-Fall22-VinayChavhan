@@ -5,8 +5,14 @@ import java.util.Scanner;
 
 public class ProduceProductMenu implements ProductMenu {
 
+	String userName = null;
+	public ProduceProductMenu(String userName) {
+		this.userName = userName;
+	}
+
 	public void showMenu(HashMap<String, Integer> menu_data)
 	{
+		System.out.println("Items in Produce Menu are as follows : ");
 		for(Map.Entry<String,Integer> entry : menu_data.entrySet())
 		{
 			String key = entry.getKey();
@@ -21,10 +27,10 @@ public class ProduceProductMenu implements ProductMenu {
 	{
 		System.out.println("Please Enter Produce Menu");
 		Scanner myObj = new Scanner(System.in);
-		String menu = myObj.nextLine();
-		if(menu_data.containsKey(menu)) {
+		String item = myObj.nextLine();
+		if(menu_data.containsKey(item)) {
 			Facade facade = new Facade();
-			facade.addTrading(this);
+			facade.addTrading(this.userName, item);
 		}
 		else
 		{
@@ -32,24 +38,20 @@ public class ProduceProductMenu implements ProductMenu {
 		}
 	}
 
-	public void showRadioButton()
-	{
-
+	public void showViewButton() {
+		System.out.println("Showing the view button in Produce Product Menu");
 	}
 
-	public void showLabels()
-	{
-
+	public void showRadioButton() {
+		System.out.println("Showing the radio button in Produce Product Menu");
 	}
 
-	public void showViewButton()
-	{
-
+	public void showLabels() {
+		System.out.println("Showing the labels in Produce Product Menu");
 	}
 
-	public void showComboxes()
-	{
-
+	public void showComboxes() {
+		System.out.println("Showing the combo boxes in Produce Product Menu");
 	}
 
 }

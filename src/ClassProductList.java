@@ -5,7 +5,7 @@ public class ClassProductList {
 	private ReminderVisitor reminderVisitor;
 
 	public void accept(NodeVisitor visitor) {
-
+		System.out.println("Reminder");
 	}
 
 }

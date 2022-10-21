@@ -3,6 +3,7 @@ import java.util.HashMap;
 public interface ProductMenu {
 
 //	private Person person;
+	public String username = null;
 	public Person person = null;
 
 	public abstract void showMenu(HashMap<String, Integer> menu_data);

@@ -19,16 +19,8 @@ public class Login {
             System.out.println(e.getMessage());
         }
     }
-    public int login() {
-        Scanner myObj = new Scanner(System.in);
-        System.out.println("Enter username");
-        String userName = myObj.nextLine();
-
-        Scanner myObj1 = new Scanner(System.in);
-        System.out.println("Enter password");
-        String password = myObj1.nextLine();
-
-        //Login Verification
+    public int login(String userName, String password) {
+        //Login Verification is done here only for both username and password
         String check_credentials = userName+":"+password;
         check_credentials.toLowerCase();
         if(credentials.containsKey(check_credentials)) {
